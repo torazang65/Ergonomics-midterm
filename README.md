@@ -21,7 +21,7 @@ work/
   q3/                      관찰 분석·대안·프로토타입·테스트 계획
 scripts/                   PDF 텍스트 재추출 도구
 references/                외부 출처와 주장 연결
-output/                    최종 제출물 (아직 없음)
+output/                    최종 제출물
 ```
 
 ## 시작점
