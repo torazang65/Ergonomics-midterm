@@ -9,3 +9,4 @@ sources/*.pdf
 
 # 학번·이름이 들어간 답안 양식은 공개 저장소에서 제외
 *.docx
+output/*-preview.pdf
