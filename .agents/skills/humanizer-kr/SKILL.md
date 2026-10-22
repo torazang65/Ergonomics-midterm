@@ -58,6 +58,8 @@ If the user provides a Korean writing sample, read it before editing and match:
 
 Do not "upgrade" the user's voice into generic polished Korean. If the sample is plain, stay plain. If the sample is slightly rough but intentional, keep that pulse.
 
+For this project, when the user asks to match their own voice, read `references/user-voice.md` as a light preference. It describes a small sample of personal mathematics notes, not a universal style requirement. Follow the current task's required register and the course's terminology first; do not imitate note fragments or carry casual notebook phrasing into a formal answer unless the user asks for that.
+
 ## Korean AI-Writing Tells
 
 Look for clusters, not isolated words. The five groups below are the editing frame; the 20 patterns are observation signals, not banned words. Apply them after identifying the genre, reader, and register.
