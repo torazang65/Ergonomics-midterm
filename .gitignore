@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 tmp/
+
+# 저작권 자료(강의·시험지·논문 원본 PDF)는 공개 저장소에서 제외
+sources/**/*.pdf
+sources/*.pdf
