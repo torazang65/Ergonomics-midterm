@@ -1,0 +1,34 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><style>
+:root{color-scheme:light}body{margin:0;padding:28px 32px 24px;background:#fff;font:15px/1.5 -apple-system,"Apple SD Gothic Neo",sans-serif;color:#22282c;width:2436px;box-sizing:border-box}
+h1{font-size:24px;margin:0 0 6px;font-weight:700}.sub{color:#55626c;margin:0 0 20px;font-size:15px}
+.row{display:flex;gap:30px;align-items:flex-start}.panel{width:772px}.panel h2{font-size:18px;margin:0 0 10px;font-weight:600}
+.step{display:inline-block;width:28px;height:28px;border-radius:14px;background:#22282c;color:#fff;text-align:center;line-height:28px;margin-right:8px;font-size:15px}
+.frame{width:772px;height:540px;border-radius:14px;overflow:hidden;position:relative}
+.shot{background:#1f2a33;display:flex;align-items:center}.shot{justify-content:center}.shot img{height:540px;width:auto;display:block}
+.desk{background:#9fb6c8;position:relative}
+.thumb{position:absolute;display:flex;flex-direction:column;align-items:center;gap:6px}
+.win{background:#f4f6f8;border-radius:8px;box-shadow:0 4px 14px rgb(0 0 0/.25);overflow:hidden}
+.win .bar{height:16px;background:#e3e7ea;font-size:8px;letter-spacing:2px;color:#7a8690;padding-left:8px;line-height:16px}
+.win .lines{padding:12px;display:grid;gap:9px}.win .lines span{display:block;height:9px;border-radius:5px;background:#cfd6dc}.win .lines span:nth-child(3n){width:60%}
+.label{font-size:13px;color:#fff;background:rgb(0 0 0/.45);border-radius:6px;padding:1px 8px}
+.kakao{position:relative;width:324px;height:230px;overflow:hidden;border-radius:8px;box-shadow:0 4px 14px rgb(0 0 0/.25);background:#fff}
+.kakao iframe{width:900px;height:640px;border:0;transform:scale(.36);transform-origin:0 0;position:absolute;left:0;top:0}
+.full iframe{width:860px;height:602px;border:0;display:block;transform:scale(.8977);transform-origin:0 0}
+.cap{font-size:14px;color:#55626c;margin:10px 0 0}
+.note{color:#55626c;font-size:14px;margin:16px 0 0}
+</style></head><body>
+<h1>Q3 선택안 A · 카카오톡 통합 대화 창</h1>
+<p class="sub">채팅마다 생기던 비슷한 창들을 하나로 합쳐, 창 개요에서는 구별되는 창 하나로 찾고 창 안에서는 이름 목록으로 친구를 고르게 한다</p>
+<div class="row">
+<div class="panel"><h2><span class="step">1</span>현재: 창 개요에 카카오톡 창 여러 개(목록 1·대화 3으로 보임)</h2><div class="frame shot"><img src="q3-prototype-figure-overview-crop.png" alt=""></div><p class="cap">실제 창 개요 캡처의 왼쪽 아래 부분 확대(2026-10-22, 점선은 본인 표시). 대화창 3개가 같은 배경·배치로 비슷하고 상단 이름은 작다.</p></div>
+<div class="panel"><h2><span class="step">2</span>제안: 창 개요에 카카오톡 창 하나</h2><div class="frame desk">
+ <div class="thumb" style="left:28px;top:36px"><div class="win" style="width:220px;height:150px"><div class="bar">● ● ●</div><div class="lines"><span></span><span></span><span></span><span></span><span></span></div></div><span class="label">과제 PDF</span></div>
+ <div class="thumb" style="left:276px;top:24px"><div class="win" style="width:250px;height:160px"><div class="bar">● ● ●</div><div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><span class="label">브라우저</span></div>
+ <div class="thumb" style="left:556px;top:44px"><div class="win" style="width:190px;height:140px"><div class="bar">● ● ●</div><div class="lines"><span></span><span></span><span></span><span></span></div></div><span class="label">메모</span></div>
+ <div class="thumb" style="left:40px;top:262px"><div class="win" style="width:250px;height:170px"><div class="bar">● ● ●</div><div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><span class="label">코드 편집기</span></div>
+ <div class="thumb" style="left:340px;top:226px"><div class="kakao"><iframe src="q3-prototype-figure-model.html" scrolling="no"></iframe></div><span class="label">카카오톡 · 친구 가</span></div>
+</div><p class="cap">모의 화면. 창 수·크기·배치는 예시이며 비교 조건이 아니다. 실제 macOS 창 개요를 구현한 것이 아니다.</p></div>
+<div class="panel"><h2><span class="step">3</span>통합 창 안: 이름 목록에서 친구 선택</h2><div class="frame full"><iframe src="q3-prototype-figure-model.html" scrolling="no"></iframe></div><p class="cap">모형(가상 대화). 선택 행·창 제목·대화 상단 이름이 함께 바뀌고 대화별 초안이 유지된다. 별도 보기는 같은 화면 위 패널로 단순화했다.</p></div>
+</div>
+<p class="note">나란히 봐야 할 때만 '별도 창으로 보기'로 분리하고 다시 통합한다. 패널 ①은 관찰 자료, ②·③은 제안 설계의 모의 화면이며 효과를 측정한 결과가 아니다.</p>
+</body></html>

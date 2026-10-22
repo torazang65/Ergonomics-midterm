@@ -1,0 +1,3 @@
+4943dc797d09e518c573ac7eb58a2f0bf6563c2ce60bba1a361ed6e96050b46e  output/q3-answer-draft.md
+873b11f31fa8c6ea8c7971d336af5fa7b757638bd0d29eea482362f7cd1033b0  work/q3/process.md
+bf2219d86b882b8575e454c5dde58c387ae76e9cae3f27073367f320347635ef  work/q3/followup-analysis.md

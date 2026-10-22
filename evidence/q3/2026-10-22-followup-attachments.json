@@ -1,0 +1,21 @@
+{
+  "saved_at_kst": "2026-10-22T21:17:19.002555+09:00",
+  "note": "ユーザー添付の原画像を無加工で保存。撮影時刻・操作の全過程は画像だけでは確認できない。",
+  "files": [
+    {
+      "original_attachment": "/var/folders/h3/pb89zdp54vbc_f6wl6nwkztc0000gn/T/codex-clipboard-efe06ec7-3bfe-4c07-b611-37635277a5b9.png",
+      "preserved_as": "evidence/q3/photos/2026-10-22-followup-list-open.png",
+      "sha256": "b7b1c9c57291283402cd0424245f466134de22522c84556fb171dcc7c9c900b0"
+    },
+    {
+      "original_attachment": "/var/folders/h3/pb89zdp54vbc_f6wl6nwkztc0000gn/T/codex-clipboard-cf527238-b3ce-4b15-8f18-657f45be96f9.png",
+      "preserved_as": "evidence/q3/photos/2026-10-22-followup-list-closed.png",
+      "sha256": "f218f78d8ffb3d0f4e84131bdb25fea45394ebe082460d5d5a55d66e50a1614f"
+    },
+    {
+      "original_attachment": "/var/folders/h3/pb89zdp54vbc_f6wl6nwkztc0000gn/T/codex-clipboard-177f061f-fce6-473c-9e2e-bedc6158851d.png",
+      "preserved_as": "evidence/q3/photos/2026-10-22-followup-dock-menu.png",
+      "sha256": "957f524419cade300d8ba5cc9ff070990c86a09a8aa999f44f50f137a5400ec7"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><style>:root{color-scheme:light}body{margin:0;padding:0;background:#fff}#q3-kakao-preview .q3-caption,#q3-kakao-preview .q3-feature-labels{display:none!important}</style></head><body>
+<div id="q3-kakao-preview">
+  <div class="q3-caption">통합 대화 창 제안 · 가상 대화</div>
+  <div class="q3-app" aria-label="카카오톡 통합 대화 모드 프로토타입">
+    <header class="q3-chrome"><span class="q3-dots" aria-hidden="true">● ● ●</span><span class="q3-title">카카오톡</span></header>
+    <div class="q3-layout">
+      <aside class="q3-sidebar" aria-label="열었던 대화">
+        <h2>열었던 대화</h2>
+        <div class="q3-list" role="group" aria-label="대화 상대 선택"></div>
+      </aside>
+      <section class="q3-chat" aria-label="선택한 대화">
+        <header class="q3-recipient"><div><span class="q3-eyebrow">현재 대화 상대</span><h2 class="q3-name"></h2></div><button type="button" class="q3-detach cursor-interaction">별도 창으로 보기</button></header>
+        <div class="q3-messages" aria-live="polite"></div>
+        <div class="q3-compose"><label for="q3-draft">메시지 초안</label><textarea id="q3-draft" rows="2" placeholder="대화를 바꿔도 초안이 유지됩니다"></textarea><span>설계 예시 · 실제 메시지 전송 없음</span></div>
+      </section>
+    </div>
+    <section class="q3-detached" aria-label="별도로 표시한 대화" hidden><header><h2></h2><button type="button" class="q3-merge cursor-interaction">통합 창으로 복귀</button></header><div class="q3-detached-content"></div></section>
+  </div>
+  <div class="q3-feature-labels"><span>창 하나에서 대화 전환</span><span>이름과 선택 표시</span><span>대화별 초안 유지</span></div>
+</div>
+<style>
+#q3-kakao-preview{--k-surface:light-dark(#fff,#242629);--k-text:light-dark(#202326,#f4f4f4);--k-sub:light-dark(#57616a,#bac4ce);--k-side:light-dark(#f7f8fa,#292d32);--k-line:light-dark(#d5dce2,#59626b);--k-chat:light-dark(#d6e5ef,#273c49);--k-selected:light-dark(#fff2b2,#5b5123);--k-in:light-dark(#fff,#3b4249);--k-out:light-dark(#ffeb63,#716119);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--k-text);width:100%;padding:0;box-sizing:border-box}
+#q3-kakao-preview *{box-sizing:border-box}
+#q3-kakao-preview .q3-caption{font-size:14px;color:var(--k-sub);margin:0 0 12px}
+#q3-kakao-preview .q3-app{position:relative;background:var(--k-surface);border:1px solid var(--k-line);border-radius:14px;overflow:hidden}
+#q3-kakao-preview .q3-chrome{display:flex;align-items:center;gap:22px;padding:14px 18px;background:var(--k-side);border-bottom:1px solid var(--k-line);font-size:14px}
+#q3-kakao-preview .q3-dots{font-size:11px;letter-spacing:4px;color:var(--k-sub)}
+#q3-kakao-preview .q3-layout{display:grid;grid-template-columns:minmax(210px,29%) minmax(0,1fr)}
+#q3-kakao-preview h2{font-size:19px;font-weight:600;line-height:1.4;margin:0}
+#q3-kakao-preview .q3-sidebar{padding:22px 12px;background:var(--k-surface);border-right:1px solid var(--k-line)}
+#q3-kakao-preview .q3-sidebar h2{padding:0 10px 18px}
+#q3-kakao-preview .q3-list{display:grid;gap:8px}
+#q3-kakao-preview button{font:inherit;color:var(--k-text)}
+#q3-kakao-preview .q3-person{display:flex;align-items:center;gap:12px;text-align:left;width:100%;padding:14px 10px;background:var(--k-surface);border:1px solid transparent;border-radius:9px;min-height:78px}
+#q3-kakao-preview .q3-person[aria-pressed="true"]{background:var(--k-selected);border-color:var(--k-text)}
+#q3-kakao-preview .q3-avatar{display:flex;align-items:center;justify-content:center;width:38px;height:38px;flex-shrink:0;border-radius:14px;background:var(--k-side);border:1px solid var(--k-line);font-size:18px}
+#q3-kakao-preview .q3-person-copy{min-width:0;display:grid;gap:3px}
+#q3-kakao-preview .q3-person-name{font-weight:600;overflow-wrap:anywhere}
+#q3-kakao-preview .q3-person-state{font-size:12px;color:var(--k-sub)}
+#q3-kakao-preview .q3-chat{min-width:0;background:var(--k-chat);display:flex;flex-direction:column;min-height:460px}
+#q3-kakao-preview .q3-recipient{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:22px 24px;border-bottom:1px solid var(--k-line)}
+#q3-kakao-preview .q3-eyebrow{font-size:12px;color:var(--k-sub)}
+#q3-kakao-preview .q3-name{font-size:23px;margin-top:4px}
+#q3-kakao-preview .q3-detach,#q3-kakao-preview .q3-merge{background:var(--k-surface);border:1px solid var(--k-line);padding:9px 12px;border-radius:7px;font-size:13px;flex-shrink:0}
+#q3-kakao-preview .q3-messages{display:flex;flex-direction:column;gap:18px;padding:28px 24px;flex:1}
+#q3-kakao-preview .q3-bubble{max-width:90%;padding:12px 16px;border-radius:11px;background:var(--k-in);align-self:flex-start;overflow-wrap:anywhere}
+#q3-kakao-preview .q3-bubble.me{background:var(--k-out);align-self:flex-end}
+#q3-kakao-preview .q3-compose{background:var(--k-surface);padding:16px 22px;border-top:1px solid var(--k-line)}
+#q3-kakao-preview label{display:block;font-size:13px;margin-bottom:6px}
+#q3-kakao-preview textarea{width:100%;resize:vertical;min-height:66px;padding:10px 12px;border-radius:7px;border:1px solid var(--k-line);background:var(--k-surface);color:var(--k-text);font:inherit;font-size:16px}
+#q3-kakao-preview .q3-compose>span{display:block;font-size:12px;margin-top:7px;color:var(--k-sub)}
+#q3-kakao-preview .q3-feature-labels{display:flex;gap:10px 22px;flex-wrap:wrap;font-size:13px;color:var(--k-sub);margin-top:13px}
+#q3-kakao-preview .q3-detached{position:absolute;top:86px;right:24px;width:min(420px,calc(100% - 48px));background:var(--k-chat);border:2px solid var(--k-text);border-radius:10px;box-shadow:0 10px 25px #0003;z-index:2}
+#q3-kakao-preview .q3-detached[hidden]{display:none}
+#q3-kakao-preview .q3-detached header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px;background:var(--k-side);border-bottom:1px solid var(--k-line)}
+#q3-kakao-preview .q3-detached h2{font-size:23px}
+#q3-kakao-preview .q3-detached-content{padding:24px;min-height:180px;display:flex;flex-direction:column;gap:16px}
+@media(max-width:600px){#q3-kakao-preview .q3-layout{grid-template-columns:1fr}#q3-kakao-preview .q3-sidebar{border-right:0;border-bottom:1px solid var(--k-line);padding:14px 12px}#q3-kakao-preview .q3-sidebar h2{padding:0 4px 12px}#q3-kakao-preview .q3-list{grid-template-columns:1fr 1fr}#q3-kakao-preview .q3-person{min-height:72px;padding:10px 8px;gap:8px}#q3-kakao-preview .q3-avatar{width:30px;height:34px;font-size:15px}#q3-kakao-preview .q3-recipient{padding:16px;flex-wrap:wrap}#q3-kakao-preview .q3-messages{padding:22px 16px}#q3-kakao-preview .q3-chat{min-height:380px}#q3-kakao-preview .q3-chrome{gap:10px;padding:12px;font-size:12px}#q3-kakao-preview .q3-detached{top:260px;right:12px;width:calc(100% - 24px)}#q3-kakao-preview .q3-detached header{flex-wrap:wrap}}
+</style>
+<script>
+(() => {
+  const root = document.getElementById('q3-kakao-preview');
+  const people = [
+    {id:'friend-a',name:'친구 가',avatar:'가',incoming:'과제에서 어느 부분이 궁금해?',outgoing:'풀이 과정을 같이 확인하고 싶어.'},
+    {id:'friend-b',name:'친구 나',avatar:'나',incoming:'자료는 확인했어?',outgoing:'응, 확인했어.'},
+    {id:'study',name:'과제 스터디',avatar:'팀',incoming:'질문은 여기에 남겨 줘.',outgoing:'다음 모임 때 같이 보자.'},
+    {id:'friend-c',name:'친구 다',avatar:'다',incoming:'공부 끝나면 이야기하자.',outgoing:'알겠어.'}
+  ];
+  let selected = 'friend-a';
+  const drafts = {};
+  const list = root.querySelector('.q3-list');
+  const input = root.querySelector('textarea');
+  const saved = window.openai?.widgetState?.privateContent;
+  if (saved && people.some(p => p.id === saved.selected)) selected = saved.selected;
+  if (saved?.drafts && typeof saved.drafts === 'object') {
+    people.forEach(p => {if(typeof saved.drafts[p.id] === 'string') drafts[p.id] = saved.drafts[p.id].slice(0,1000);});
+  }
+  function persist(){
+    if(window.openai?.setWidgetState) window.openai.setWidgetState({modelContent:{selectedConversation:selected},privateContent:{selected,drafts}}).catch(()=>{});
+  }
+  function bubbles(container,p){
+    container.replaceChildren();
+    [p.incoming,p.outgoing].forEach((text,i)=>{const b=document.createElement('div');b.className='q3-bubble'+(i?' me':'');b.textContent=text;container.append(b);});
+  }
+  function render(){
+    const p=people.find(p=>p.id===selected);
+    root.querySelector('.q3-name').textContent=p.name;
+    root.querySelector('.q3-title').textContent='카카오톡 · '+p.name;
+    bubbles(root.querySelector('.q3-messages'),p);
+    input.value=drafts[selected]||'';
+    list.querySelectorAll('button').forEach(b=>{const active=b.dataset.person===selected;b.setAttribute('aria-pressed',String(active));b.querySelector('.q3-person-state').textContent=active?'선택됨':'대화 열기';});
+  }
+  people.forEach(p=>{
+    const button=document.createElement('button');button.type='button';button.className='q3-person cursor-interaction';button.dataset.person=p.id;
+    const avatar=document.createElement('span');avatar.className='q3-avatar';avatar.textContent=p.avatar;avatar.setAttribute('aria-hidden','true');
+    const copy=document.createElement('span');copy.className='q3-person-copy';
+    const name=document.createElement('span');name.className='q3-person-name';name.textContent=p.name;
+    const state=document.createElement('span');state.className='q3-person-state';copy.append(name,state);button.append(avatar,copy);list.append(button);
+    button.addEventListener('click',()=>{drafts[selected]=input.value.slice(0,1000);selected=p.id;render();persist();});
+  });
+  input.maxLength=1000;
+  input.addEventListener('input',()=>{drafts[selected]=input.value;persist();});
+  root.querySelector('.q3-detach').addEventListener('click',()=>{
+    const p=people.find(p=>p.id===selected);const panel=root.querySelector('.q3-detached');panel.querySelector('h2').textContent=p.name+' · 별도 보기';bubbles(panel.querySelector('.q3-detached-content'),p);panel.hidden=false;panel.querySelector('button').focus();
+  });
+  root.querySelector('.q3-merge').addEventListener('click',()=>{root.querySelector('.q3-detached').hidden=true;root.querySelector('.q3-detach').focus();});
+  window.addEventListener('openai:set_globals',event=>{
+    const state=event.detail?.globals?.widgetState?.privateContent;
+    if(state && people.some(p=>p.id===state.selected)){selected=state.selected;people.forEach(p=>{if(typeof state.drafts?.[p.id]==='string')drafts[p.id]=state.drafts[p.id].slice(0,1000);});render();}
+  });
+  render();
+})();
+</script>
+
+</body></html>

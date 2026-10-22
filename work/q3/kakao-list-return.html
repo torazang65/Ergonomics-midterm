@@ -1,0 +1,161 @@
+<div id="q3-list-return">
+  <div class="kr-caption">대화목록 버튼 제안 · 겹친 창과 가려진 목록을 재현한 모의 화면 · 가상 대화</div>
+  <div class="kr-controls" role="group" aria-label="모형 상태 바꾸기"><span class="kr-small">모형 조작(제안 기능 아님)</span><button type="button" class="kr-preset cursor-interaction" data-preset="occluded">목록이 가려진 상태로</button><button type="button" class="kr-preset cursor-interaction" data-preset="closed">목록을 닫은 상태로</button></div>
+  <div class="kr-scene" aria-label="모의 데스크톱">
+    <section class="kr-window kr-app" data-win="app" aria-label="다른 앱 창 예시">
+      <div class="kr-titlebar"><span aria-hidden="true">● ● ●</span><span>다른 앱 · 과제 자료(예시)</span></div>
+      <div class="kr-app-body" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </section>
+    <section id="kr-list-window" class="kr-window kr-list-window" data-win="list" aria-label="대화목록 창">
+      <div class="kr-titlebar"><span aria-hidden="true">● ● ●</span><span>카카오톡</span></div>
+      <header class="kr-list-header"><h2>대화목록</h2><button type="button" class="kr-close cursor-interaction">목록 닫기</button></header>
+      <div class="kr-list" role="group" aria-label="이동할 대화 선택"></div>
+    </section>
+  </div>
+  <p class="kr-status" aria-live="polite"></p>
+  <div class="kr-legend"><span>버튼은 모든 대화창의 같은 위치</span><span>가려져 있으면 목록 하나만 앞으로, 닫혀 있으면 복원</span><span>다른 대화창은 닫지 않음</span></div>
+</div>
+<style>
+#q3-list-return{--kr-surface:light-dark(#fff,#252a2e);--kr-text:light-dark(#22282c,#f3f5f6);--kr-muted:light-dark(#55626c,#c0cbd4);--kr-chrome:light-dark(#f4f6f8,#30383e);--kr-line:light-dark(#c8d2da,#687781);--kr-chat:light-dark(#c9dee9,#294251);--kr-desktop:light-dark(#dfe7ec,#141c22);--kr-app:light-dark(#f7f4ee,#2c2a26);--kr-bar:light-dark(#ddd6c8,#4a463e);--kr-yellow:light-dark(#ffea58,#71601d);--kr-selected:light-dark(#fff5bd,#5b501e);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--kr-text);width:100%}
+#q3-list-return *{box-sizing:border-box}
+#q3-list-return [hidden]{display:none!important}
+#q3-list-return .kr-caption{font-size:14px;color:var(--kr-muted);margin-bottom:10px}
+#q3-list-return .kr-small{font-size:12px;color:var(--kr-muted)}
+#q3-list-return button{font:inherit;color:var(--kr-text)}
+#q3-list-return .kr-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:10px}
+#q3-list-return .kr-preset{font-size:13px;min-height:40px;background:var(--kr-surface);border:1px dashed var(--kr-line);border-radius:7px;padding:8px 10px}
+#q3-list-return .kr-scene{position:relative;height:500px;background:var(--kr-desktop);border-radius:14px;overflow:hidden}
+#q3-list-return .kr-window{position:absolute;display:flex;flex-direction:column;background:var(--kr-surface);border:1px solid var(--kr-line);border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgb(0 0 0/.12)}
+#q3-list-return .kr-window.kr-front{box-shadow:0 10px 28px rgb(0 0 0/.28);border-color:var(--kr-text)}
+#q3-list-return [data-win="app"]{left:6%;top:16px;width:42%;height:430px;background:var(--kr-app)}
+#q3-list-return [data-win="list"]{left:3%;top:46px;width:30%;height:390px}
+#q3-list-return [data-win="a"]{left:24%;top:30px;width:40%;height:350px}
+#q3-list-return [data-win="s"]{left:54%;top:12px;width:43%;height:350px}
+#q3-list-return [data-win="b"]{left:35%;top:120px;width:43%;height:360px}
+#q3-list-return .kr-titlebar{display:flex;align-items:center;gap:16px;background:var(--kr-chrome);border-bottom:1px solid var(--kr-line);padding:9px 14px;font-size:12px;white-space:nowrap;flex-shrink:0}
+#q3-list-return .kr-titlebar>span:first-child{color:var(--kr-muted);font-size:9px;letter-spacing:3px}
+#q3-list-return .kr-app-body{display:grid;gap:14px;padding:22px}
+#q3-list-return .kr-app-body span{display:block;height:12px;border-radius:6px;background:var(--kr-bar)}
+#q3-list-return .kr-app-body span:nth-child(3n){width:62%}
+#q3-list-return h2{font-size:18px;line-height:1.35;font-weight:600;margin:0}
+#q3-list-return .kr-chat-header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;background:var(--kr-chat);flex-shrink:0}
+#q3-list-return .kr-identity{display:flex;align-items:center;gap:10px;min-width:0}
+#q3-list-return .kr-identity h2{overflow-wrap:anywhere}
+#q3-list-return .kr-avatar{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--kr-chrome);border:1px solid var(--kr-line);border-radius:15px;font-size:17px}
+#q3-list-return .kr-open{flex-shrink:0;background:var(--kr-surface);border:2px solid var(--kr-text);border-radius:8px;padding:8px 12px;font-weight:600;min-height:44px}
+#q3-list-return .kr-messages{flex:1;background:var(--kr-chat);padding:8px 16px 14px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+#q3-list-return .kr-bubble{max-width:92%;align-self:flex-start;padding:9px 13px;background:var(--kr-surface);border-radius:10px;overflow-wrap:anywhere;font-size:14px}
+#q3-list-return .kr-bubble.me{background:var(--kr-yellow);align-self:flex-end}
+#q3-list-return .kr-compose{border-top:1px solid var(--kr-line);padding:10px 14px;flex-shrink:0}
+#q3-list-return .kr-compose label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+#q3-list-return textarea{font:inherit;font-size:16px;color:var(--kr-text);width:100%;padding:8px 10px;border:1px solid var(--kr-line);border-radius:7px;background:var(--kr-surface);resize:none;height:52px}
+#q3-list-return .kr-list-window{border:2px solid var(--kr-text)}
+#q3-list-return .kr-list-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:12px 14px;background:var(--kr-chrome);border-bottom:1px solid var(--kr-line);flex-shrink:0}
+#q3-list-return .kr-close{font-size:12px;min-height:40px;background:var(--kr-surface);border:1px solid var(--kr-line);border-radius:7px;padding:8px 10px}
+#q3-list-return .kr-list{display:grid;gap:6px;padding:10px 8px;overflow:auto}
+#q3-list-return .kr-person{display:flex;align-items:center;gap:10px;text-align:left;width:100%;min-height:64px;padding:10px 8px;background:var(--kr-surface);border:1px solid transparent;border-radius:8px}
+#q3-list-return .kr-person[aria-pressed="true"]{border-color:var(--kr-text);background:var(--kr-selected)}
+#q3-list-return .kr-person-copy{display:grid;gap:2px;min-width:0;overflow-wrap:anywhere}
+#q3-list-return .kr-person-copy>span:first-child{font-weight:600}
+#q3-list-return .kr-person-copy>span:last-child{font-size:12px;color:var(--kr-muted)}
+#q3-list-return .kr-status{min-height:24px;margin:10px 0 0;font-size:14px}
+#q3-list-return .kr-legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:6px;font-size:13px;color:var(--kr-muted)}
+@media(max-width:680px){
+#q3-list-return .kr-scene{height:480px}
+#q3-list-return [data-win="app"]{left:3%;top:8px;width:84%;height:300px}
+#q3-list-return [data-win="list"]{left:2%;top:34px;width:82%;height:340px}
+#q3-list-return [data-win="a"]{left:7%;top:64px;width:90%;height:300px}
+#q3-list-return [data-win="s"]{left:9%;top:96px;width:89%;height:300px}
+#q3-list-return [data-win="b"]{left:11%;top:140px;width:87%;height:320px}
+#q3-list-return .kr-chat-header{padding:10px 12px}
+#q3-list-return .kr-open{padding:6px 9px}
+#q3-list-return h2{font-size:16px}
+#q3-list-return .kr-avatar{width:34px;height:34px;font-size:15px}
+}
+</style>
+<script>
+(() => {
+ const root=document.getElementById('q3-list-return');
+ const scene=root.querySelector('.kr-scene');
+ const listWin=root.querySelector('.kr-list-window');
+ const list=root.querySelector('.kr-list');
+ const status=root.querySelector('.kr-status');
+ const people=[
+  {id:'a',name:'친구 가',avatar:'가',incoming:'과제에서 어느 부분이 궁금해?',outgoing:'풀이 과정을 같이 확인하고 싶어.'},
+  {id:'s',name:'과제 스터디',avatar:'팀',incoming:'질문은 여기에 남겨 줘.',outgoing:'다음에 함께 확인하자.'},
+  {id:'b',name:'친구 나',avatar:'나',incoming:'자료는 확인했어?',outgoing:'응, 확인했어.'}
+ ];
+ const backToFront=['list','app','a','s','b'];
+ const state={order:[...backToFront],listOpen:true,selected:'b',drafts:{}};
+ const chats={};
+ people.forEach(p=>{
+  const win=document.createElement('section');win.className='kr-window kr-chat';win.dataset.win=p.id;win.setAttribute('aria-label',p.name+' 대화창');
+  const bar=document.createElement('div');bar.className='kr-titlebar';bar.innerHTML='<span aria-hidden="true">● ● ●</span><span>카카오톡</span>';
+  const header=document.createElement('header');header.className='kr-chat-header';
+  const identity=document.createElement('div');identity.className='kr-identity';
+  const avatar=document.createElement('span');avatar.className='kr-avatar';avatar.textContent=p.avatar;avatar.setAttribute('aria-hidden','true');
+  const name=document.createElement('h2');name.textContent=p.name;identity.append(avatar,name);
+  const opener=document.createElement('button');opener.type='button';opener.className='kr-open cursor-interaction';opener.textContent='대화목록';opener.setAttribute('aria-controls','kr-list-window');
+  header.append(identity,opener);
+  const messages=document.createElement('div');messages.className='kr-messages';
+  [p.incoming,p.outgoing].forEach((text,i)=>{const b=document.createElement('div');b.className='kr-bubble'+(i?' me':'');b.textContent=text;messages.append(b);});
+  const compose=document.createElement('div');compose.className='kr-compose';
+  const label=document.createElement('label');label.htmlFor='kr-draft-'+p.id;label.textContent=p.name+'에게 보낼 메시지 초안';
+  const input=document.createElement('textarea');input.id='kr-draft-'+p.id;input.maxLength=1000;input.placeholder='질문을 작성하세요';
+  input.addEventListener('input',()=>{state.drafts[p.id]=input.value;persist();});
+  compose.append(label,input);
+  win.append(bar,header,messages,compose);scene.append(win);
+  opener.addEventListener('click',event=>{event.stopPropagation();openList();});
+  chats[p.id]={win,opener,input};
+ });
+ function raise(id){state.order=state.order.filter(w=>w!==id).concat(id);}
+ function frontChat(){return [...state.order].reverse().find(w=>chats[w]);}
+ function applySaved(saved){
+  if(saved?.version!==3)return;
+  if(Array.isArray(saved.order)&&saved.order.length===backToFront.length&&backToFront.every(w=>saved.order.includes(w)))state.order=[...saved.order];
+  state.listOpen=saved.listOpen!==false;
+  if(chats[saved.selected])state.selected=saved.selected;
+  people.forEach(p=>{if(typeof saved.drafts?.[p.id]==='string')state.drafts[p.id]=saved.drafts[p.id].slice(0,1000);});
+ }
+ function persist(){if(window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:{design:'conversation-list-entry-occlusion',frontWindow:state.order[state.order.length-1],listOpen:state.listOpen},privateContent:{version:3,...state}}).catch(()=>{});}
+ function render(){
+  const top=state.order[state.order.length-1];
+  state.order.forEach((id,i)=>{const el=scene.querySelector('[data-win="'+id+'"]');el.style.zIndex=String(i+1);el.classList.toggle('kr-front',id===top);});
+  listWin.hidden=!state.listOpen;
+  people.forEach(p=>{chats[p.id].opener.setAttribute('aria-expanded',String(state.listOpen&&top==='list'));if(document.activeElement!==chats[p.id].input)chats[p.id].input.value=state.drafts[p.id]||'';});
+  list.querySelectorAll('button').forEach(b=>{const active=b.dataset.person===state.selected;b.setAttribute('aria-pressed',String(active));b.querySelector('.kr-person-state').textContent=active?'현재 대화':'이 대화로 이동';});
+ }
+ function openList(){
+  const wasOpen=state.listOpen;const wasTop=state.order[state.order.length-1]==='list';
+  state.listOpen=true;raise('list');
+  status.textContent=!wasOpen?'닫혀 있던 대화목록을 복원해 앞으로 가져왔습니다.':wasTop?'대화목록이 이미 맨 앞에 있습니다. 새 목록을 만들지 않았습니다.':'다른 창 뒤에 가려져 있던 대화목록 하나만 앞으로 가져왔습니다. 다른 창은 그대로입니다.';
+  render();persist();
+  (list.querySelector('[aria-pressed="false"]')||list.querySelector('button')).focus();
+ }
+ function selectPerson(id){
+  state.selected=id;raise(id);
+  const p=people.find(p=>p.id===id);
+  status.textContent=p.name+' 대화창을 앞으로 가져왔습니다. 상단 이름으로 상대를 확인하세요. 목록은 열린 채 뒤에 남습니다.';
+  render();persist();chats[id].input.focus();
+ }
+ function preset(name){
+  state.order=[...backToFront];state.selected='b';state.listOpen=name!=='closed';
+  status.textContent=name==='closed'?'대화목록을 닫은 상태입니다. 대화창의 대화목록 버튼으로 복원할 수 있습니다.':'대화목록은 열려 있지만 다른 창들 뒤에 가려져 있습니다.';
+  render();persist();
+ }
+ people.forEach(p=>{
+  const button=document.createElement('button');button.type='button';button.className='kr-person cursor-interaction';button.dataset.person=p.id;
+  const avatar=document.createElement('span');avatar.className='kr-avatar';avatar.textContent=p.avatar;avatar.setAttribute('aria-hidden','true');
+  const copy=document.createElement('span');copy.className='kr-person-copy';const name=document.createElement('span');name.textContent=p.name;const st=document.createElement('span');st.className='kr-person-state';copy.append(name,st);button.append(avatar,copy);list.append(button);
+  button.addEventListener('click',event=>{event.stopPropagation();selectPerson(p.id);});
+ });
+ scene.querySelectorAll('.kr-window').forEach(el=>el.addEventListener('pointerdown',()=>{const id=el.dataset.win;if(state.order[state.order.length-1]===id)return;raise(id);if(chats[id])state.selected=id;render();persist();}));
+ root.querySelector('.kr-close').addEventListener('click',event=>{event.stopPropagation();state.listOpen=false;state.selected=frontChat();status.textContent='대화목록을 닫았습니다. 각 대화창의 대화목록 버튼은 그대로 있습니다.';render();persist();chats[state.selected].opener.focus();});
+ root.querySelectorAll('.kr-preset').forEach(b=>b.addEventListener('click',()=>preset(b.dataset.preset)));
+ window.addEventListener('openai:set_globals',event=>{applySaved(event.detail?.globals?.widgetState?.privateContent);render();});
+ applySaved(window.openai?.widgetState?.privateContent);
+ const scenes={occluded:()=>preset('occluded'),closed:()=>preset('closed'),'list-front':()=>{preset('occluded');openList();},selected:()=>{preset('occluded');openList();selectPerson('a');}};
+ const hash=(location.hash.match(/scene=([a-z-]+)/)||[])[1];
+ if(scenes[hash]){scenes[hash]();document.activeElement?.blur?.();}else{status.textContent=state.listOpen?'대화목록은 열려 있지만 다른 창들 뒤에 가려져 있습니다.':'대화목록을 닫은 상태입니다.';render();}
+})();
+</script>
