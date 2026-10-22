@@ -18,4 +18,8 @@
 - T=H(X)+H(Y)-H(X,Y), H(Y|X)=H(X,Y)-H(X), H(X|Y)=H(X,Y)-H(Y) 확인.
 - 0≤T≤min(H(X),H(Y)), 조건부 엔트로피 비음성 확인.
 - 반올림 전 수치로 계산하고 마지막에만 반올림.
-- 성능·판단 기준·정보 전달·오류 비용·UI 영향을 구분. 현재는 계산하지 않은 상태.
+- 성능·판단 기준·정보 전달·오류 비용·UI 영향을 구분.
+
+## 상태 (2026-10-22)
+
+1~4 완료: definitions.md 확정, input.json, verify_output.txt, independent-check.md. 5는 results.md에 분석 메모로 작성했다. Codex·Claude CLI 초안 비교 기록은 reviews/에, 최종 답안은 ../../output/q2-final-answer.md에 있다.

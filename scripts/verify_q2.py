@@ -51,7 +51,7 @@ def sdt(d):
     return {
         "P(H)": ph, "P(M)": 1 - ph, "P(FA)": pfa, "P(CR)": 1 - pfa,
         "Z(H)": z_h, "Z(FA)": z_fa,
-        "Zsn(기준~SN평균)": -z_h, "Zn(N평균~기준)": -z_fa,
+        "Zsn(기준→SN평균, p.38)": z_h, "Zn(N평균→기준, p.38)": -z_fa,
         "f(xc|SN)": N01.pdf(z_h), "f(xc|N)": N01.pdf(z_fa),
         "d'": d_prime, "beta": beta, "ln beta": math.log(beta), "c": c,
         "[표 2자리] d'": zt_h - zt_fa,
